@@ -258,6 +258,8 @@ ols
 ```
 
 ### (ii)
+We plot hardness against time for the 16 observations and overlay the fitted OLS regression line.
+
 ```{r, fig.dim = c(8, 5)}
 plot(x, y, xlab = "X: time", ylab = "Y: hardness")
 abline(ols, col = "red", lty = 2)
