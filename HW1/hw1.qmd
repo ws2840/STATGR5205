@@ -84,6 +84,7 @@ $$
 Simulate $n=1000$ draws of (X, Y). Plot the draws:
 
 ```{r, fig.dim = c(8, 8)}
+set.seed(17)
 n <- 1000
 D1 <- sample(1:6, n, replace = TRUE)
 D2 <- sample(1:6, n, replace = TRUE)
@@ -101,8 +102,16 @@ legend("topleft",
 
 ### (iii)
 
+After simulation $n=1000$ observations and fitting the OLS regression,
+$$
+\hat{\beta}_0 = 0.34, \quad \hat{\beta}_1 = 1.50
+$$
 
+so
 
+$$
+\widehat{E[Y|X=x]} = \hat{\beta}_0 + \hat{\beta}_1 x = 0.34 + 1.50x
+$$
 
 
 ### (iv)
