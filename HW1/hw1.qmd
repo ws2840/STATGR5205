@@ -242,15 +242,29 @@ $$
 Y|X \sim N(\mu_y + \rho \frac{\sigma_y}{\sigma_x}(x-\mu_x), \sigma_y^2(1-\rho^2))
 $$
 
-
-
 ## Problem 3
 
-### (i)
+```{r}
+#| echo: false
+y <- c(199.0,205.0,196.0,200.0,218.0,220.0,215.0,223.0,237.0,234.0,235.0,230.0,250.0,248.0,253.0,246.0)
+x <- c(rep(16,4),rep(24,4),rep(32,4),rep(40,4))   
+```
 
-The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+### (i)
+Fit OLS R Code:
+```{r}
+ols <- lm(y ~ x)
+ols
+```
 
 ### (ii)
+```{r, fig.dim = c(8, 5)}
+plot(x, y, xlab = "X: time", ylab = "Y: hardness")
+abline(ols, col = "red", lty = 2)
+legend("topleft",
+       sprintf("OLS: Y = %.2f + %.2fX", coef(ols)[1], coef(ols)[2]),
+       col = "red", lty = 2, bty = "n")
+```
 
 ### (iii)
 
@@ -293,6 +307,7 @@ The log-likelihood for $T$ i.i.d. observations is the following. We can prove th
 
 library(ggplot2)
 
+ols_data <- data.frame()
 ggplot(airquality, aes(Temp, Ozone)) + 
   geom_point() + 
   geom_smooth(method = "loess")
