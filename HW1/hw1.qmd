@@ -113,10 +113,66 @@ $$
 \widehat{E[Y|X=x]} = \hat{\beta}_0 + \hat{\beta}_1 x = 0.34 + 1.50x
 $$
 
+\newpage
 
 ### (iv)
 
+Using the estimated line, we get:
+
+| x | True | OLS |
+|---|---:|---:|
+| 1 | 2.000 | 1.84 |
+| 2 | 3.333 | 3.34 |
+| 3 | 4.800 | 4.84 |
+| 4 | 6.286 | 6.34 |
+| 5 | 7.778 | 7.84 |
+| 6 | 9.273 | 9.34 |
+
+These estimates are **biased** becaused the true conditional expectation $E[Y|X=x]$ appears not linear on $X$, while the fitted OLS model assumed a linear relationship.
+
 ### (v)
+Simulate and estimated B(x):
+
+```{r}
+M <- 2000
+N <- 1000
+
+x_vals <- 1:6
+y_vals <- 2:12
+join_prob <- matrix(0, nrow = 6, ncol = 11, dimnames = list(x_vals, y_vals))
+join_prob["1", "2"] <- 1
+join_prob["2", c("3", "4")] <- c(2, 1)
+join_prob["3", c("4", "5", "6")] <- c(2, 2, 1)
+join_prob["4", c("5", "6", "7", "8")] <- c(2, 2, 2, 1)
+join_prob["5", c("6", "7", "8", "9", "10")] <- c(2, 2, 2, 2, 1)
+join_prob["6", c("7", "8", "9", "10", "11", "12")] <- c(2, 2, 2, 2, 2, 1)
+join_prob <- join_prob / 36
+
+# calculate true E[Y|X=x]
+P_X <- rowSums(join_prob)
+true_EY_given_X <- as.vector(join_prob %*% y_vals) / P_X
+
+# simulation: M=2000 times N=1000 draws
+Yhat_mat <- matrix(NA, nrow = M, ncol = length(x_vals))
+for (r in 1:M) {
+  D1_r <- sample(1:6, N, replace = TRUE)
+  D2_r <- sample(1:6, N, replace = TRUE)
+  X_r <- pmax(D1_r, D2_r)
+  Y_r <- D1_r + D2_r
+  fit_r <- lm(Y_r ~ X_r)
+  Yhat_mat[r, ] <- coef(fit_r)[1] + coef(fit_r)[2] * x_vals
+}
+EYhat <- colMeans(Yhat_mat)
+Bias_x <- EYhat - true_EY_given_X
+names(Bias_x) <- x_vals
+bias_table <- data.frame(
+x = x_vals,
+true_EY = true_EY_given_X,
+E_Yhat = EYhat,
+Bias = Bias_x
+)
+bias_table
+```
 
 
 ## Problem 2
