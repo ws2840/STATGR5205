@@ -10,7 +10,7 @@ format:
     toc: false
     number-sections: false
 execute:
-  echo: false        # do not print code into the PDF
+  echo: true        # print code into the PDF
   warning: false
   message: false
   cache: true        # re-render fast; delete _cache/ to force a rerun
@@ -81,7 +81,27 @@ $$
 
 ### (ii)
 
+Simulate $n=1000$ draws of (X, Y). Plot the draws:
+
+```{r, fig.dim = c(8, 8)}
+n <- 1000
+D1 <- sample(1:6, n, replace = TRUE)
+D2 <- sample(1:6, n, replace = TRUE)
+
+X <- pmax(D1, D2)
+Y <- D1 + D2
+ols <- lm(Y ~ X)
+
+plot(X, Y, main = "Sum and Max of Two Dice Rolls")
+abline(ols, col = "red", lwd = 2)
+legend("topleft",
+       sprintf("OLS: Y = %.2f + %.2fX", coef(ols)[1], coef(ols)[2]),
+       col = "red", lwd = 2, bty = "n")
+```
+
 ### (iii)
+
+
 
 
 
