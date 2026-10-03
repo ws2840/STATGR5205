@@ -253,8 +253,8 @@ x <- c(rep(16,4),rep(24,4),rep(32,4),rep(40,4))
 ### (i)
 Fit OLS R Code:
 ```{r}
-ols <- lm(y ~ x)
-ols
+model <- lm(y ~ x)
+model
 ```
 
 ### (ii)
@@ -262,15 +262,17 @@ We plot hardness against time for the 16 observations and overlay the fitted OLS
 
 ```{r, fig.dim = c(8, 5)}
 plot(x, y, xlab = "X: time", ylab = "Y: hardness")
-abline(ols, col = "red", lty = 2)
+abline(model, col = "red", lty = 2)
 legend("topleft",
-       sprintf("OLS: Y = %.2f + %.2fX", coef(ols)[1], coef(ols)[2]),
+       sprintf("OLS: Y = %.2f + %.2fX", coef(model)[1], coef(model)[2]),
        col = "red", lty = 2, bty = "n")
 ```
 
 ### (iii)
 
-The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+```{r}
+y_hat <- predict(model)
+```
 
 ### (iv)
 
