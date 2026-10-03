@@ -172,10 +172,77 @@ E_Yhat = EYhat,
 Bias = Bias_x
 )
 bias_table
+
+plot(x_vals, Bias_x, type = "b", pch = 19, col = "green",
+xlab = "x", ylab = "Estimated bias B(x)",
+main = "Estimated bias of the linear predictor Yhat(x)")
+abline(h = 0, lty = 2, col = "gray50")
 ```
 
-
 ## Problem 2
+
+Simplify the conditional density of $Y|X=x$:
+$$
+f(y|X=x) = \frac{f(x,y)}{f_X(x)}
+$$ 
+
+Let
+
+$$
+  z_x = \frac {x-\mu_x} {\sigma_x}, z_y = \frac {y-\mu_y} {\sigma_y}
+$$
+
+Then 
+$$
+\begin{align*}
+f(x, y) &= \frac {1}{2 \pi \sigma_x \sigma_y \sqrt{1-\rho^2}}  \exp \left\{ -\frac {1} {1-\rho^2} \left[ z_x^2 - 2\rho z_x z_y + z_y^2 \right] \right\} \\
+&= \frac {1}{2 \pi \sigma_x \sigma_y \sqrt{1-\rho^2}}   \exp \left\{ -\frac {1} {1-\rho^2} \left[ z_y^2 - 2\rho z_x z_y + \rho^2 z_x^2 - \rho^2 z_y^2 + z_x^2 \right] \right\} \\
+&= \frac {1}{2 \pi \sigma_x \sigma_y \sqrt{1-\rho^2}}   \exp \left\{ -\frac {1} {1-\rho^2} (z_y - \rho z_x)^2 -\frac {1} {2} z_x^2 \right\} \\
+&= \frac{1}{\sqrt{2\pi \sigma_y^2(1-\rho^2)}}   \exp \left\{ -\frac {1} {2} \left( \frac{z_y - \rho z_x}{\sqrt{1-\rho^2}} \right)^2 \right\} \frac{1}{\sqrt{2\pi \sigma_x^2}} \exp \left\{ -\frac {1} {2} z_x^2 \right\} \\
+&= h(x, y) g(x)
+\end{align*}
+$$
+
+Which $h(x,y)$ is also a valid normal density function:
+
+$$
+\begin{align*}
+h(x, y) &= \frac{1}{\sqrt{2\pi \sigma_y^2(1-\rho^2)}}   \exp \left\{ -\frac {1} {2} \left( \frac{z_y - \rho z_x}{\sqrt{1-\rho^2}} \right)^2 \right\} \\
+&= \frac{1}{\sqrt{2\pi \sigma_y^2(1-\rho^2)}} \exp \left\{ -\frac {1} {2} \left( \frac{\frac{y-\mu_y}{\sigma_y} - \rho \frac{x-\mu_x}{\sigma_x}}{\sqrt{1-\rho^2}} \right)^2 \right\} \\
+&= \frac{1}{\sqrt{2\pi \sigma_y^2(1-\rho^2)}} \exp \left\{ -\frac {1} {2} \left( \frac{y-\mu_y - \rho \sigma_y\frac{x-\mu_x}{\sigma_x}}{\sigma_y \sqrt{1-\rho^2}} \right)^2 \right\} \\
+\end{align*}
+$$
+
+The marginal distribution of X:
+
+$$
+\begin{align*}
+f_X(x) &= \int_{-\infty}^{\infty} f(x, y) dy \\
+&= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi \sigma_x^2}} \exp \left\{ -\frac {1} {2} z_x^2 \right\} h(x, y) dy \\
+&= \frac{1}{\sqrt{2\pi \sigma_x^2}} \exp \left\{ -\frac {1} {2} z_x^2 \right\} \int_{-\infty}^{\infty} h(x, y) dy \\
+&= \frac{1}{\sqrt{2\pi \sigma_x^2}} \exp \left\{ -\frac {1} {2} z_x^2 \right\}
+\end{align*}
+$$
+
+Thefore, $f_X(x) = g(x)$
+
+Now we have,
+
+$$
+\begin{align*}
+f(y|X=x) &= \frac{f(x,y)}{f_X(x)} \\
+&= \frac{h(x, y) g(x)}{g(x)} \\
+&= h(x, y) \\
+&= \frac{1}{\sqrt{2\pi \sigma_y^2(1-\rho^2)}} \exp \left\{ -\frac {1} {2} \left( \frac{y-\mu_y - \rho \sigma_y\frac{x-\mu_x}{\sigma_x}}{\sigma_y \sqrt{1-\rho^2}} \right)^2 \right\} \\
+\end{align*}
+$$
+
+Hence,
+$$
+Y|X \sim N(\mu_y + \rho \frac{\sigma_y}{\sigma_x}(x-\mu_x), \sigma_y^2(1-\rho^2))
+$$
+
+
 
 ## Problem 3
 
