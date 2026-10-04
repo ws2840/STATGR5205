@@ -280,8 +280,6 @@ y_hat <- predict(model)
 
 ### (i)
 
-The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
-
 ### (ii)
 
 ## Problem 5
