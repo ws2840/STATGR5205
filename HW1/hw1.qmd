@@ -367,7 +367,20 @@ Thus, the residual vector is orthogonal to the fitted-value vector, which proves
 
 ### (i)
 
-The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+Proof.
+
+$$
+\begin{align*}
+\sum_{j=1}^n h_{ij}^2 &= \sum_{j=1}^n (\frac {1}{n} + \frac {(x_i - \bar{x})(x_j - \bar{x})}{S_{xx}})^2 \\
+&= \sum_{j=1}^n (\frac {1}{n^2} + \frac{2(x_i - \bar{x})(x_j - \bar{x})}{n S_{xx}} + \frac{(x_i - \bar{x})^2 (x_j - \bar{x})^2}{S_{xx}^2})\\
+&= \sum_{j=1}^n \frac{1}{n^2} + \frac{2(x_i - \bar{x})}{nS_{xx}}\sum_{j=1}^n (x_j - \bar{x})+ \frac{(x_i - \bar{x})^2}{S_{xx}^2} \sum_{j=1}^n(x_j - \bar{x})^2\\
+&= \frac{1}{n} + 0 + \frac{(x_i - \bar{x})^2}{S_{xx}^2} S_{xx} \\
+&= \frac{1}{n} + \frac{(x_i - \bar{x})^2}{S_{xx}} \\
+&= h_{ii}
+\end{align*}
+$$
+
+Hence, the sum of the squares of $i$-th row of the hat matrix: $\sum_{j=1}^n h_{ij}^2$ equals the diagonal element $h_{ii}$.
 
 ### (ii)
 
