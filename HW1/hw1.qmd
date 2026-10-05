@@ -269,12 +269,38 @@ legend("topleft",
 ```
 
 ### (iii)
+Compute MSE,
+$$
+ MSE = \frac{1}{n - 2} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = 10.45893
+$$
 
 ```{r}
-y_hat <- predict(model)
+y_hat <- fitted(model)
+SSE <- sum((y - y_hat)^2)
+MSE <- SSE / (length(y) - 2)
+MSE
 ```
 
 ### (iv)
+
+The sample correlation coefficient is:
+
+$$
+  corr = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2 \sum_{i=1}^{n} (y_i - \bar{y})^2}} = 0.9865
+$$
+```{r}
+cor(x, y)
+```
+
+The coefficeint of determination is:
+$$
+R^2 = 1 - \frac{SSE}{SST} = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2} = 0.9731
+$$
+```{r}
+SST <- sum((y - mean(y_hat))^2)
+R2 <- 1 - SSE / SST
+R2
+```
 
 ## Problem 4
 
