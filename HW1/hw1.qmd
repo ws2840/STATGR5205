@@ -427,8 +427,13 @@ $$
 \begin{align*}
 \hat{\beta} &= \frac{S_{xy}}{S_{xx}} \\
 &= \frac{\sum_{i=1}^n x_i Y_i }{\sum_{i=1}^n (x_i)^2}\\
-&= \sum_{i=1}^n c_i Y_i, \text{where } c_i = \frac{x_i}{\sum_{j=1}^n x_j^2}
+&= \sum_{i=1}^n c_i Y_i
 \end{align*}
+$$
+
+Where,
+$$
+  c_i = \frac{x_i}{\sum_{j=1}^n x_j^2}
 $$
 
 Also, note that
@@ -453,3 +458,15 @@ $$
 $$
 
 ### (iii)
+
+Since $\hat \beta$ is a linear combination of (i) independent, and (ii) normal random variables,
+
+$$
+\hat \beta = \sum_{i=1}^n c_i Y_i
+$$
+
+$\hat{\beta}$ is also normally distributed,
+
+$$
+\hat{\beta} \sim N(\beta, \frac{\sigma^2}{\sum_{j=1}^n x_j^2})
+$$
