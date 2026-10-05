@@ -306,6 +306,45 @@ R2
 
 ### (i)
 
+Proof. The least-squares estimates $\hat \beta_0$ and $\hat \beta_1$ are obtained by minimizing the sum of squared residuals:
+$$
+Q(b_0, b_1) =\sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2
+$$
+
+over $b_0, b_1 \in \mathbb{R}$. Because Q is differentiable on $\mathbb{R}^2$, the minimum occurs where the partial derivatives with respect to $b_0$ and $b_1$ are zero.
+$$
+\begin{align*}
+0 &= \left. \frac{\partial Q}{\partial b_0}\right|_{b_0 = \hat{\beta}_0, b_1 = \hat{\beta}_1} \\
+&= -2 \sum_{i=1}^{n} (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) \\
+&= -2\sum_{i=1}^{n} e_i
+\end{align*}
+$$
+
+Hence, the residuals sum to zero:
+
+$$
+\sum_{i=1}^{n} e_i = 0
+$$
+
+Similarly, differentiating with respect to the slope gives
+$$
+\frac{\partial Q}{\partial b_1} = -2 \sum_{i=1}^{n} x_i (y_i - b_0 - b_1 x_i) = 0
+$$
+Solving these equations gives the least-squares estimates:
+$$
+\begin{align*}
+0 &= \left. \frac{\partial Q}{\partial b_1}\right|_{b_0 = \hat{\beta}_0, b_1 = \hat{\beta}_1} \\
+&= -2 \sum_{i=1}^{n} x_i(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) \\
+&= -2\sum_{i=1}^{n} x_i e_i
+\end{align*}
+$$
+
+Therefore,
+$$
+\sum_{i=1}^{n} x_i e_i = 0
+$$
+which proves part(i).
+
 ### (ii)
 
 ## Problem 5
