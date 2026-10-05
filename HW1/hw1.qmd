@@ -401,7 +401,24 @@ Hence, the dot product of the $i$-th row of the hat matrix with the vector of $x
 
 ### (i)
 
-The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+Under model (1),
+
+$$
+E[Y_i] = E[\beta x_i + \epsilon_i] = \beta x_i + E[\epsilon_i] = \beta x_i
+$$
+
+Then,
+$$
+\begin{align*}
+E[\hat \beta] &= E\left[\frac{\sum_{i=1}^n x_i Y_i}{\sum_{i=1}^n x_i^2}\right] \\
+&= \frac{\sum_{i=1}^n x_i E[Y_i]}{\sum_{i=1}^n x_i^2} \\
+&= \frac{\sum_{i=1}^n x_i (\beta x_i)}{\sum_{i=1}^n x_i^2} \\
+&= \frac{\beta \sum_{i=1}^n x_i^2}{\sum_{i=1}^n x_i^2} \\
+&= \beta
+\end{align*}
+$$
+
+Hence, $\hat \beta$ is unbiased for $\beta$.
 
 ### (ii)
 
