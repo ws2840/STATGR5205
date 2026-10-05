@@ -384,6 +384,19 @@ Hence, the sum of the squares of $i$-th row of the hat matrix: $\sum_{j=1}^n h_{
 
 ### (ii)
 
+Proof.
+$$
+\begin{align*}
+\sum_{j=1}^n h_{ij} x_j &= \sum_{j=1}^n (\frac {1}{n} + \frac {(x_i - \bar{x})(x_j - \bar{x})}{S_{xx}}) x_j \\
+&= \frac{1}{n} \sum_{j=1}^n x_j + \frac{(x_i - \bar{x})}{S_{xx}} \sum_{j=1}^n (x_j - \bar{x}) x_j \\
+&= \bar{x} +  \frac{(x_i - \bar{x})}{S_{xx}} S_{xx}\\
+&= \bar{x} + (x_i - \bar{x}) \\
+&= x_i
+\end{align*}
+$$
+
+Hence, the dot product of the $i$-th row of the hat matrix with the vector of $x$ values: $\sum_{j=1}^n h_{ij} x_j$, equals the $i$-th $x$ value itself.
+
 ## Problem 6
 
 ### (i)
