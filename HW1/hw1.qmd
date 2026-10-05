@@ -380,19 +380,3 @@ The log-likelihood for $T$ i.i.d. observations is the following. We can prove th
 ### (ii)
 
 ### (iii)
-
-
-
-```{r}
-#| label: fig-airquality
-#| fig-cap: "Temperature and ozone level."
-#| warning: false
-
-library(ggplot2)
-
-ols_data <- data.frame()
-ggplot(airquality, aes(Temp, Ozone)) + 
-  geom_point() + 
-  geom_smooth(method = "loess")
-
-```
