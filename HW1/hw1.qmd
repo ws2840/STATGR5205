@@ -128,7 +128,7 @@ Using the estimated line, we get:
 | 5 | 7.778 | 7.84 |
 | 6 | 9.273 | 9.34 |
 
-These estimates are **biased** becaused the true conditional expectation $E[Y|X=x]$ appears not linear on $X$, while the fitted OLS model assumed a linear relationship.
+The linear predictor is **biased** for $E[Y \mid X=x]$ because the true conditional expectation is nonlinear in $x$.
 
 ### (v)
 Simulate and estimated B(x):
@@ -195,9 +195,9 @@ $$
 Then 
 $$
 \begin{align*}
-f(x, y) &= \frac {1}{2 \pi \sigma_x \sigma_y \sqrt{1-\rho^2}}  \exp \left\{ -\frac {1} {1-\rho^2} \left[ z_x^2 - 2\rho z_x z_y + z_y^2 \right] \right\} \\
-&= \frac {1}{2 \pi \sigma_x \sigma_y \sqrt{1-\rho^2}}   \exp \left\{ -\frac {1} {1-\rho^2} \left[ z_y^2 - 2\rho z_x z_y + \rho^2 z_x^2 - \rho^2 z_y^2 + z_x^2 \right] \right\} \\
-&= \frac {1}{2 \pi \sigma_x \sigma_y \sqrt{1-\rho^2}}   \exp \left\{ -\frac {1} {1-\rho^2} (z_y - \rho z_x)^2 -\frac {1} {2} z_x^2 \right\} \\
+f(x, y) &= \frac {1}{2 \pi \sigma_x \sigma_y \sqrt{1-\rho^2}}  \exp \left\{ -\frac {1} {2(1-\rho^2)} \left[ z_x^2 - 2\rho z_x z_y + z_y^2 \right] \right\} \\
+&= \frac {1}{2 \pi \sigma_x \sigma_y \sqrt{1-\rho^2}}   \exp \left\{ -\frac {1} {2(1-\rho^2)} \left[ z_y^2 - 2\rho z_x z_y + \rho^2 z_x^2 - \rho^2 z_x^2 + z_x^2 \right] \right\} \\
+&= \frac {1}{2 \pi \sigma_x \sigma_y \sqrt{1-\rho^2}}   \exp \left\{ -\frac {1} {2(1-\rho^2)} (z_y - \rho z_x)^2 -\frac {1} {2} z_x^2 \right\} \\
 &= \frac{1}{\sqrt{2\pi \sigma_y^2(1-\rho^2)}}   \exp \left\{ -\frac {1} {2} \left( \frac{z_y - \rho z_x}{\sqrt{1-\rho^2}} \right)^2 \right\} \frac{1}{\sqrt{2\pi \sigma_x^2}} \exp \left\{ -\frac {1} {2} z_x^2 \right\} \\
 &= h(x, y) g(x)
 \end{align*}
@@ -297,7 +297,7 @@ $$
 R^2 = 1 - \frac{SSE}{SST} = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2} = 0.9731
 $$
 ```{r}
-SST <- sum((y - mean(y_hat))^2)
+SST <- sum((y - mean(y))^2)
 R2 <- 1 - SSE / SST
 R2
 ```
