@@ -1,0 +1,94 @@
+---
+title: "Problem Set 2"
+author: "Wen Sheng (ws2840)"
+date: today
+format:
+  pdf:
+    documentclass: article
+    fontsize: 11pt
+    geometry: margin=1in
+    toc: false
+    number-sections: false
+execute:
+  echo: false        # do not print code into the PDF
+  warning: false
+  message: false
+  cache: true        # re-render fast; delete _cache/ to force a rerun
+engine: knitr
+editor:
+  render-on-save: true
+---
+
+## Problem 1
+
+### (i)
+
+The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+
+### (ii)
+
+### (iii)
+
+The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+
+### (iv)
+
+### (v)
+
+
+## Problem 2
+
+## Problem 3
+
+### (i)
+
+The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+
+### (ii)
+
+### (iii)
+
+The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+
+### (iv)
+
+## Problem 4
+
+### (i)
+
+The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+
+### (ii)
+
+## Problem 5
+
+### (i)
+
+The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+
+### (ii)
+
+## Problem 6
+
+### (i)
+
+The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
+
+### (ii)
+
+### (iii)
+
+
+
+```{r}
+#| label: fig-airquality
+#| fig-cap: "Temperature and ozone level."
+#| warning: false
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess")
+
+```
