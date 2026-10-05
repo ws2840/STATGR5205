@@ -425,8 +425,7 @@ Hence, $\hat \beta$ is unbiased for $\beta$.
 Solution. Note, $\hat \beta$ can be written as a linear combination of the $Y_i$'s:
 $$
 \begin{align*}
-\hat{\beta} &= \frac{S_{xy}}{S_{xx}} \\
-&= \frac{\sum_{i=1}^n x_i Y_i }{\sum_{i=1}^n (x_i)^2}\\
+\hat{\beta} &= \frac{\sum_{i=1}^n x_i Y_i }{\sum_{i=1}^n (x_i)^2}\\
 &= \sum_{i=1}^n c_i Y_i
 \end{align*}
 $$
@@ -452,7 +451,7 @@ Var[\hat{\beta}] &= Var\left[\sum_{i=1}^n c_i Y_i\right] \\
 \end{align*}
 $$
 
-Thus, then the variance of $\hat{\beta}$ is given by
+Thus, then the standard error of $\hat{\beta}$ is given by
 $$
 \sigma_{\hat{\beta}} = \sqrt{\frac{\sigma^2}{\sum_{j=1}^n x_j^2}}
 $$
