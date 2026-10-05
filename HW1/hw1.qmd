@@ -131,7 +131,7 @@ Using the estimated line, we get:
 The linear predictor is **biased** for $E[Y \mid X=x]$ because the true conditional expectation is nonlinear in $x$.
 
 ### (v)
-Simulate and estimated B(x):
+Simulate and estimate B(x):
 
 ```{r}
 M <- 2000
@@ -224,7 +224,7 @@ f_X(x) &= \int_{-\infty}^{\infty} f(x, y) dy \\
 \end{align*}
 $$
 
-Thefore, $f_X(x) = g(x)$
+Therefore, $f_X(x) = g(x)$
 
 Now we have,
 
