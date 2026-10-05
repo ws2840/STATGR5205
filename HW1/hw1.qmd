@@ -347,6 +347,22 @@ which proves part(i).
 
 ### (ii)
 
+Proof. Use the fitted value for the $i$-th observation, we have
+$$
+\hat y_i = \hat{\beta}_0 + \hat{\beta}_1 x_i.
+$$ 
+and the two normal equations in Part (i). Then
+
+$$
+\begin{align*}
+\sum_{i=1}^{n} \hat y_i e_i &= \sum_{i=1}^{n} (\hat{\beta}_0 + \hat{\beta}_1 x_i) e_i \\
+&= \hat{\beta}_0 \sum_{i=1}^{n} e_i + \hat{\beta}_1 \sum_{i=1}^{n} x_i e_i \\
+&= 0
+\end{align*}
+$$
+
+Thus, the residual vector is orthogonal to the fitted-value vector, which proves part (ii).
+
 ## Problem 5
 
 ### (i)
