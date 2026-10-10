@@ -23,34 +23,26 @@ editor:
 
 ### (i)
 
-The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
-
 ### (ii)
 
 ### (iii)
-
-The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
 
 ### (iv)
 
 ### (v)
 
+### (vi)
+### (vii)
+
 
 ## Problem 2
-
-## Problem 3
-
 ### (i)
-
-The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
 
 ### (ii)
 
 ### (iii)
 
-The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
-
-### (iv)
+## Problem 3
 
 ## Problem 4
 
@@ -67,17 +59,9 @@ The log-likelihood for $T$ i.i.d. observations is the following. We can prove th
 The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
 
 ### (ii)
-
-## Problem 6
-
-### (i)
-
-The log-likelihood for $T$ i.i.d. observations is the following. We can prove the result.
-
-### (ii)
-
 ### (iii)
 
+### (iv)
 
 
 ```{r}
